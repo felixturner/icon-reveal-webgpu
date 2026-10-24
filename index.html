@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Icon Reveal WebGPU</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+        background: #e5e6e8;
+        font-family: sans-serif;
+      }
+      canvas {
+        display: block;
+      }
+      /* text buttons: black on WB, white on BW (body.bw) */
+      .ui {
+        background: none;
+        border: none;
+        padding: 4px 6px;
+        font-family: sans-serif;
+        font-size: 14px;
+        letter-spacing: 0.04em;
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+        opacity: 0.7;
+      }
+      .ui:hover {
+        opacity: 1;
+      }
+      body.bw .ui {
+        color: #fff;
+      }
+      #topbar {
+        position: fixed;
+        top: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 16px;
+        z-index: 20;
+      }
+      #play {
+        position: fixed;
+        left: 50%;
+        bottom: 44px;
+        transform: translateX(-50%);
+        z-index: 20;
+      }
+      #timebar {
+        position: fixed;
+        left: 25%;
+        width: 50%;
+        bottom: 20px;
+        margin: 0;
+        z-index: 10;
+      }
+      #loading {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loading">Initializing WebGPU...</div>
+    <input id="timebar" type="range" min="0" max="1" step="0.0001" value="0" />
+    <div id="topbar">
+      <button id="toggle-bw" class="ui">Toggle BW</button>
+      <button id="toggle-gui" class="ui">GUI</button>
+      <a class="ui" href="https://github.com/felixturner/icon-reveal-webgpu" target="_blank">Source</a>
+    </div>
+    <button id="play" class="ui">Play</button>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
