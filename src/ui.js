@@ -3,13 +3,15 @@ export function setupUI({ base, timeline, gui, onToggleMode }) {
   const { anim, end } = timeline;
   const sound = new Audio(base + 'sounds/heal2.mp3');
 
-  // Play: always restarts the timeline from 0 with the sound
-  document.getElementById('play').addEventListener('click', () => {
+  // Play (button or click on the icon): always restarts the timeline from 0 with the sound
+  const play = () => {
     anim.time = 0;
     anim.playing = true;
     sound.currentTime = 0;
     sound.play();
-  });
+  };
+  document.getElementById('play').addEventListener('click', play);
+  document.getElementById('play-area').addEventListener('click', play);
 
   // Space = pause / resume
   window.addEventListener('keydown', (e) => {

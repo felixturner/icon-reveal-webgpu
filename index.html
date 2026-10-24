@@ -51,6 +51,20 @@
         transform: translateX(-50%);
         z-index: 20;
       }
+      /* invisible click target over the icon */
+      #play-area {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        width: 40vmin;
+        height: 40vmin;
+        transform: translate(-50%, -50%);
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        z-index: 15;
+      }
       #timebar {
         position: fixed;
         left: 25%;
@@ -78,6 +92,7 @@
       <a class="ui" href="https://github.com/felixturner/icon-reveal-webgpu" target="_blank">Source</a>
     </div>
     <button id="play" class="ui">Play</button>
+    <button id="play-area" aria-label="Play"></button>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
